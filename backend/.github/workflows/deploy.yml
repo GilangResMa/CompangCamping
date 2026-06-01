@@ -1,0 +1,46 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: "read"
+      id-token: "write"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Google Cloud Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: "projects/${{ vars.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-pool"
+          service_account: "github-actions-sa@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com"
+
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to Cloud Run
+        working-directory: ./backend
+        run: |
+          gcloud run deploy camping-rental-api \
+            --source . \
+            --region ${{ vars.GCP_REGION }} \
+            --allow-unauthenticated \
+            --port 8080 \
+            --set-env-vars DB_HOST=/cloudsql/${{ vars.CLOUD_SQL_INSTANCE }} \
+            --set-env-vars DB_USER=${{ secrets.DB_USER }} \
+            --set-env-vars DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+            --set-env-vars DB_NAME=camping_rental \
+            --set-env-vars NODE_ENV=production \
+            --set-env-vars GCP_PROJECT_ID=${{ vars.GCP_PROJECT_ID }} \
+            --set-env-vars GCS_BUCKET_NAME=camping-rental-photos \
+            --quiet
