@@ -170,27 +170,11 @@ const deleteUnit = async (unitId) => {
   };
 
   const conditionClass = (condition) => {
-<<<<<<< HEAD
-    if (condition === "baik") return "bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 border border-emerald-300";
-    if (condition === "rusak_ringan") return "bg-gradient-to-r from-amber-100 to-orange-100 text-amber-700 border border-amber-300";
-    if (condition === "rusak_berat") return "bg-gradient-to-r from-red-100 to-rose-100 text-red-700 border border-red-300";
-    if (condition === "hilang") return "bg-gradient-to-r from-gray-200 to-slate-200 text-gray-700 border border-gray-300";
-    return "bg-gray-100 text-gray-700 border border-gray-300";
-  };
-
-  const conditionLabel = (condition) => {
-    if (condition === "baik") return "✨ Sempurna";
-    if (condition === "rusak_ringan") return "⚠️ Ada Lecet";
-    if (condition === "rusak_berat") return "🔴 Rusak Parah";
-    if (condition === "hilang") return "❌ Hilang";
-    return "Tidak Diketahui";
-=======
     if (condition === "baik") return "bg-green-100 text-green-700";
     if (condition === "rusak_ringan") return "bg-yellow-100 text-yellow-700";
     if (condition === "rusak_berat") return "bg-red-100 text-red-700";
     if (condition === "hilang") return "bg-gray-200 text-gray-700";
     return "bg-gray-100 text-gray-700";
->>>>>>> ae722efe13e4ba0e72a28b65adc51e8dfbdbb72b
   };
 
   return (
@@ -256,19 +240,11 @@ const deleteUnit = async (unitId) => {
 
               <div className="flex gap-2 mt-3 flex-wrap">
                 <span
-<<<<<<< HEAD
-                  className={`px-4 py-2 rounded-xl text-sm font-semibold ${conditionClass(
-                    unit.condition_status
-                  )}`}
-                >
-                  {conditionLabel(unit.condition_status)}
-=======
                   className={`px-3 py-1 rounded-full text-sm ${conditionClass(
                     unit.condition_status
                   )}`}
                 >
                   {unit.condition_status}
->>>>>>> ae722efe13e4ba0e72a28b65adc51e8dfbdbb72b
                 </span>
 
                 <span
@@ -324,17 +300,10 @@ const deleteUnit = async (unitId) => {
               onChange={handleChange}
               className="w-full p-3 border rounded-lg mb-4"
             >
-<<<<<<< HEAD
-              <option value="baik">✨ Sempurna</option>
-              <option value="rusak_ringan">⚠️ Ada Lecet</option>
-              <option value="rusak_berat">🔴 Rusak Parah</option>
-              <option value="hilang">❌ Hilang</option>
-=======
               <option value="baik">Baik</option>
               <option value="rusak_ringan">Rusak Ringan</option>
               <option value="rusak_berat">Rusak Berat</option>
               <option value="hilang">Hilang</option>
->>>>>>> ae722efe13e4ba0e72a28b65adc51e8dfbdbb72b
             </select>
 
             <label className="block text-sm text-gray-600 mb-1">

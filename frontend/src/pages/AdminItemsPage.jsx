@@ -123,39 +123,6 @@ const handleDelete = async (id) => {
     );
   }
 };
-<<<<<<< HEAD
-
-const getConditionLabel = (condition) => {
-  switch (condition) {
-    case "baik":
-      return "✨ Sempurna";
-    case "rusak_ringan":
-      return "⚠️ Ada Lecet";
-    case "rusak_berat":
-      return "🔴 Rusak Parah";
-    case "hilang":
-      return "❌ Hilang";
-    default:
-      return "Tidak Diketahui";
-  }
-};
-
-const getConditionStyle = (condition) => {
-  switch (condition) {
-    case "baik":
-      return "bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 border border-emerald-300";
-    case "rusak_ringan":
-      return "bg-gradient-to-r from-amber-100 to-orange-100 text-amber-700 border border-amber-300";
-    case "rusak_berat":
-      return "bg-gradient-to-r from-red-100 to-rose-100 text-red-700 border border-red-300";
-    case "hilang":
-      return "bg-gradient-to-r from-gray-200 to-slate-200 text-gray-700 border border-gray-300";
-    default:
-      return "bg-gray-100 text-gray-700 border border-gray-300";
-  }
-};
-=======
->>>>>>> ae722efe13e4ba0e72a28b65adc51e8dfbdbb72b
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow p-4">
@@ -243,17 +210,10 @@ const getConditionStyle = (condition) => {
             onChange={handleChange}
             className="w-full p-3 border rounded-lg mb-4"
           >
-<<<<<<< HEAD
-            <option value="baik">✨ Sempurna</option>
-            <option value="rusak_ringan">⚠️ Ada Lecet</option>
-            <option value="rusak_berat">🔴 Rusak Parah</option>
-            <option value="hilang">❌ Hilang</option>
-=======
             <option value="baik">Baik</option>
             <option value="rusak_ringan">Rusak Ringan</option>
             <option value="rusak_berat">Rusak Berat</option>
             <option value="hilang">Hilang</option>
->>>>>>> ae722efe13e4ba0e72a28b65adc51e8dfbdbb72b
           </select>
 
           <button className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold">
@@ -299,15 +259,6 @@ const getConditionStyle = (condition) => {
                     Rp {Number(item.price_per_day).toLocaleString()}/hari
                   </p>
 
-<<<<<<< HEAD
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <span className={`px-3 py-1 rounded-xl text-xs font-semibold ${getConditionStyle(item.item_condition)}`}>
-                      {getConditionLabel(item.item_condition)}
-                    </span>
-                  </div>
-
-=======
->>>>>>> ae722efe13e4ba0e72a28b65adc51e8dfbdbb72b
                   {item.description && (
                     <p className="text-sm text-gray-600 mt-2">
                       {item.description}
