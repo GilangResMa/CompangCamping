@@ -1,0 +1,15 @@
+runtime: python39 # atau python312 (paling baru)
+env: standard
+service: frontend-compang # nama service, bebas
+
+handlers:
+  - url: /static
+    static_dir: build/static
+
+  - url: /(.*\.(ico|png|jpg|jpeg|gif|svg|css|js|json|txt|map|webmanifest))$
+    static_files: build/\1
+    upload: build/.*\.(ico|png|jpg|jpeg|gif|svg|css|js|json|txt|map|webmanifest)$
+
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
