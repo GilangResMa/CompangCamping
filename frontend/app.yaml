@@ -1,6 +1,6 @@
-runtime: python39 # atau python312 (paling baru)
+runtime: nodejs22 # atau python312 (paling baru)
 env: standard
-service: frontend-compang # nama service, bebas
+service: compangcamping # nama service, bebas
 
 handlers:
   - url: /static
