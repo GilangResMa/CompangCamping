@@ -1,0 +1,6 @@
+api.rest
+node_modules
+dist
+
+/backend/.env
+/frontend/.env
